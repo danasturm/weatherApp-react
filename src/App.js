@@ -1,23 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import axios from "axios";
+import SearchCity from "./components/SearchCity";
+import WeatherCard from "./components/WeatherCard";
+import ErrorMessage from "./components/ErrorMessage";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  const [data, setData] = useState({});
+  const [location, setLocation] = useState('');
+  const [errorMessage, setErrorMessage] = useState({
+    text: "",
+    error: false
+  })
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=b68955c8fc03157b607d710fc31f2a8b`;
+   
+  const onSearchLocation = async (event) => {
+    if (location === "" && event.key === 'Enter') {
+      setErrorMessage({ text: "Please type in a valid city name!", error: true });
+    } else if (event.key === 'Enter') {
+        const response = await axios.get(url);
+        setData(response.data);
+        setErrorMessage({ text: "", error: false });
+        setLocation("");
+    }
+  }
+
+  const onSearchChange = (event) => setLocation(event.target.value);
+
+return (
+    <div className="app">
+      <SearchCity searchLocation={onSearchLocation} searchChange={onSearchChange} />
+       
+       { !errorMessage.error && 
+         <WeatherCard data={data} />
+       }
+
+       { errorMessage.error && 
+         <ErrorMessage />
+       }
     </div>
   );
 }
