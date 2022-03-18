@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/react-gh-pages/static/css/main.22bf9191.css",
+    "main.js": "/react-gh-pages/static/js/main.95020e7d.js",
+    "static/media/weather.webp": "/react-gh-pages/static/media/weather.fbe36db9be099bed6d74.webp",
+    "index.html": "/react-gh-pages/index.html",
+    "main.22bf9191.css.map": "/react-gh-pages/static/css/main.22bf9191.css.map",
+    "main.95020e7d.js.map": "/react-gh-pages/static/js/main.95020e7d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.22bf9191.css",
+    "static/js/main.95020e7d.js"
+  ]
+}
