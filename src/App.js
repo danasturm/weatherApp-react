@@ -12,9 +12,9 @@ function App() {
     error: false
   })
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=b68955c8fc03157b607d710fc31f2a8b`;
-   
+       
   const onSearchLocation = async (event) => {
-    if (location === "" && event.key === 'Enter') {
+    if (location === "" && event.key === 'Enter')  {
       setErrorMessage({ text: "Please type in a valid city name!", error: true });
     } else if (event.key === 'Enter') {
         const response = await axios.get(url);
