@@ -17,13 +17,13 @@ function App() {
     if (location === "" && event.key === 'Enter')  {
       setErrorMessage({ text: "Please type in a valid city name!", error: true });
     } else if (event.key === 'Enter') {
-        const response = await axios.get(url);
+      const response = await axios.get(url);
         setData(response.data);
         setErrorMessage({ text: "", error: false });
         setLocation("");
     }
   }
-
+  
   const onSearchChange = (event) => setLocation(event.target.value);
 
 return (
