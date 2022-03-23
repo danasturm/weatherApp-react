@@ -1,9 +1,9 @@
 
-import React from 'react'
+import React from "react";
 
 const ErrorMessage = () => {
     return (
-        <div className='error-message'>
+        <div className="error-message">
             Please type in a valid city name!
         </div>
     )
